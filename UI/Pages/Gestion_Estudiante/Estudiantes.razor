@@ -1,0 +1,566 @@
+﻿@page "/Estudiantes"
+@using System.Net.Http.Json
+@inject HttpClient http
+@using Data.Estudiante
+@using System.ComponentModel.DataAnnotations
+@inject NavigationManager NavManager
+@using Microsoft.AspNetCore.Components.Forms
+
+<div class="container py-5 entrada-animada">
+
+    <h1 class="titulo-moderno text-center mb-5 fw-bold">
+        Gestión de Estudiantes
+    </h1>
+
+    <div class="neumo-card p-4 mb-5">
+        <h3 class="mb-4 text-primary titulo-seccion"><i class="oi oi-person me-2"></i> Registrar Nuevo Estudiante</h3>
+        
+        <EditForm Model="@nuevoestudiante" OnValidSubmit="RegistrarEstudiante" OnInvalidSubmit="InvalidSubmitRegister">
+            <DataAnnotationsValidator />
+            
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <label class="form-label label-modern">TIPO DOCUMENTO</label>
+                    <InputSelect @bind-Value="nuevoestudiante.tipodocumento" class="input-modern form-select">
+                        <option value="">-- Seleccionar --</option>
+                        <option value="CC">Cedula de Ciudadanía</option>
+                        <option value="CE">Cedula de Extranjería</option>
+                    </InputSelect>
+                    <ValidationMessage For="@(() => nuevoestudiante.tipodocumento)" />
+                </div>
+
+                <div class="col-md-4 mb-4">
+                    <label class="form-label label-modern">DOCUMENTO</label>
+                    <InputText @bind-Value="nuevoestudiante.documento" class="input-modern" placeholder="Ej: 100200300" />
+                    <ValidationMessage For="@(() => nuevoestudiante.documento)" />
+                </div>
+
+                <div class="col-md-4 mb-4">
+                    <label class="form-label label-modern">TELÉFONO</label>
+                    <InputText @bind-Value="nuevoestudiante.telefono" class="input-modern" placeholder="Ej: 300 123 4567" />
+                    <ValidationMessage For="@(() => nuevoestudiante.telefono)" />
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-6 mb-4">
+                    <label class="form-label label-modern">NOMBRES</label>
+                    <div class="d-flex gap-3"> 
+                        <div class="w-50">
+                            <InputText @bind-Value="nuevoestudiante.nombreuno" class="input-modern" placeholder="Primer Nombre" />
+                            <ValidationMessage For="@(() => nuevoestudiante.nombreuno)" />
+                        </div>
+                        <InputText @bind-Value="nuevoestudiante.nombredos" class="input-modern w-50" placeholder="Segundo (Opcional)" />
+                    </div>
+                </div>
+
+                <div class="col-md-6 mb-4">
+                    <label class="form-label label-modern">APELLIDOS</label>
+                    <div class="d-flex gap-3">
+                         <div class="w-50">
+                            <InputText @bind-Value="nuevoestudiante.apellidouno" class="input-modern" placeholder="Primer Apellido" />
+                            <ValidationMessage For="@(() => nuevoestudiante.apellidouno)" />
+                        </div>
+                        <InputText @bind-Value="nuevoestudiante.apellidodos" class="input-modern w-50" placeholder="Segundo (Opcional)" />
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-3 mb-4">
+                    <label class="form-label label-modern">SEXO</label>
+                    <InputSelect @bind-Value="nuevoestudiante.sexo" class="input-modern form-select">
+                        <option value="">-- Selecciona Sexo--</option>
+                        <option value="M">Masculino</option>
+                        <option value="F">Femenino</option>
+                    </InputSelect>
+                    <ValidationMessage For="@(() => nuevoestudiante.sexo)" />
+                </div>
+
+                <div class="col-md-3 mb-4">
+                    <label class="form-label label-modern">RH</label>
+                    <InputSelect @bind-Value="nuevoestudiante.rh" class="input-modern form-select">
+                        <option value="">-- Selecciona Tipo Sangre--</option>
+                        <option value="O-">O-</option>
+                        <option value="O+">O+</option>
+                    </InputSelect>
+                    <ValidationMessage For="@(() => nuevoestudiante.rh)" />
+                </div>
+                
+                <div class="col-md-6 mb-4">
+                    <label class="form-label label-modern">DIRECCIÓN</label>
+                    <InputText @bind-Value="nuevoestudiante.direccion" class="input-modern" placeholder="Dirección de residencia" />
+                    <ValidationMessage For="@(() => nuevoestudiante.direccion)" />
+                </div>
+            </div>
+
+            <div class="row mt-4">
+                <div class="col-12 text-end">
+                    <button type="submit" class="btn-gradiente btn-animado">
+                        <i class="oi oi-check me-2"></i> Guardar Estudiante
+                    </button>
+                </div>
+            </div>
+        </EditForm>
+    </div>
+
+    <h3 class="mb-4 ps-2 border-start border-primary titulo-seccion"><i class="oi oi-list me-2"></i> Listado de Registros</h3>
+    
+    <!-- SEARCH AND FILTER SECTION -->
+    <div class="neumo-card p-4 mb-5">
+        <h3 class="mb-4 text-primary titulo-seccion"><i class="oi oi-magnifying-glass me-2"></i> Búsqueda y Filtros Avanzados</h3>
+        <div class="row g-3">
+            <div class="col-md-6">
+                <label class="form-label label-modern">Buscar por nombre o apellido</label>
+                <input type="text" class="input-modern form-control" @bind="terminoBusqueda" placeholder="Ej: Juan, Pérez, María García" />
+            </div>
+            <div class="col-md-2">
+                <label class="form-label label-modern">Filtrar por sexo</label>
+                <select class="input-modern form-select" @bind="filtroSexo">
+                    <option value="">Todos</option>
+                    <option value="M">Masculino</option>
+                    <option value="F">Femenino</option>
+                </select>
+            </div>
+            <div class="col-md-2">
+                <label class="form-label label-modern">Tipo de documento</label>
+                <select class="input-modern form-select" @bind="filtroTipoDocumento">
+                    <option value="">Todos</option>
+                    <option value="CC">Cédula de Ciudadanía</option>
+                    <option value="CE">Cédula de Extranjería</option>
+                </select>
+            </div>
+            <div class="col-md-2">
+                <label class="form-label label-modern">Tipo de sangre</label>
+                <select class="input-modern form-select" @bind="filtroTipoSangre">
+                    <option value="">Todos</option>
+                    <option value="O-">O-</option>
+                    <option value="O+">O+</option>
+                </select>
+            </div>
+        </div>
+        <div class="mt-4 text-center">
+            <button class="btn-gradiente btn-animado me-2" @onclick="BuscarEstudiantes">
+                <i class="oi oi-magnifying-glass me-2"></i> Buscar
+            </button>
+            <button class="btn-gradiente btn-animado btn-secondary me-2" @onclick="LimpiarFiltros">
+                <i class="oi oi-x-circle me-2"></i> Limpiar Filtros
+            </button>
+            <button class="btn-gradiente btn-animado btn-success me-2" @onclick="ObtenerEstudiantes">
+                <i class="oi oi-list-rich me-2"></i> Ver Todos
+            </button>
+            <button class="btn-gradiente btn-animado btn-info" @onclick="BusquedaGeneral">
+                <i class="oi oi-magnifying-glass-plus me-2"></i> Búsqueda General
+            </button>
+        </div>
+
+        <div class="mt-4">
+            <p><strong>Total encontrados:</strong> <span class="badge bg-primary fs-6">@(estudiantes?.Count ?? 0)</span></p>
+
+            @if (TieneFiltrosActivos())
+            {
+                <div>
+                    <h6 class="text-muted mb-2">Filtros activos:</h6>
+                    <div class="d-flex flex-wrap gap-2">
+                        @if (!string.IsNullOrEmpty(terminoBusqueda))
+                        {
+                            <span class="badge bg-info">Nombre: @terminoBusqueda</span>
+                        }
+                        @if (!string.IsNullOrEmpty(filtroSexo))
+                        {
+                            <span class="badge bg-warning">Sexo: @(filtroSexo == "M" ? "Masculino" : "Femenino")</span>
+                        }
+                        @if (!string.IsNullOrEmpty(filtroTipoDocumento))
+                        {
+                            <span class="badge bg-warning">Tipo Doc: @filtroTipoDocumento</span>
+                        }
+                        @if (!string.IsNullOrEmpty(filtroTipoSangre))
+                        {
+                            <span class="badge bg-warning">Sangre: @filtroTipoSangre</span>
+                        }
+                    </div>
+                </div>
+            }
+            else
+            {
+                <p class="text-muted"><small>Mostrando todos los estudiantes registrados</small></p>
+            }
+        </div>
+    </div>
+
+    <button class="btn btn-outline-primary mb-4 rounded-pill btn-accion-lista" @onclick="ObtenerEstudiantes">
+        <i class="oi oi-reload me-1"></i> Actualizar Lista
+    </button>
+    
+    @if (estudiantes is not null && estudiantes.Any())
+    {
+        <div class="table-responsive neumo-card p-3">
+            <table class="tabla-neumo">
+                <thead>
+                    <tr>
+                        <th>Cód</th>
+                        <th>Documento</th>
+                        <th>Nombre Completo</th>
+                        <th>Contacto</th>
+                        <th>Género/RH</th>
+                        <th class="text-center">Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in estudiantes)
+                    {
+                        <tr class="fila-neumo">
+                            <td class="fw-bold text-primary">@item.codigo</td>
+                            <td>
+                                <span class="badge bg-primary text-white neumo-badge">@item.tipodocumento</span>
+                                <br/><span class="text-muted small">@item.documento</span>
+                            </td>
+                            <td>
+                                <span class="fw-bold text-dark">@item.nombreuno @item.nombredos</span>
+                                <br/>
+                                <small class="text-secondary">@item.apellidouno @item.apellidodos</small>
+                            </td>
+                            <td>
+                                <small class="d-block"><i class="oi oi-phone"></i> @item.telefono</small>
+                                <small class="d-block text-truncate text-secondary" style="max-width: 150px;">@item.direccion</small>
+                            </td>
+                            <td>@item.sexo / @item.rh</td>
+                            <td class="text-center">
+                                <button class="btn-accion-icono btn-warning" title="Editar" @onclick="() => AbrirModalEditar(item)">
+                                    <i class="oi oi-pencil"></i>
+                                </button>
+                                <button class="btn-accion-icono btn-danger" title="Eliminar" @onclick="() => EliminarEstudiante(item.documento)">
+                                    <i class="oi oi-trash"></i>
+                                </button>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    }
+    else
+    {
+        <div class="text-center p-5 neumo-card">
+            <h5 class="text-muted">No hay estudiantes registrados.</h5>
+            <p class="text-secondary">Utiliza el formulario de registro arriba para empezar.</p>
+        </div>
+    }
+</div>
+
+<div class="notificacion-flotante">
+    @if (mostrarAlerta)
+    {
+        <div class="alerta-neumo alerta-exito mb-2">
+            <i class="oi oi-check me-2 fs-4"></i>
+            <div>
+                <strong>¡Éxito!</strong><br/>
+                <small>Estudiante guardado correctamente.</small>
+            </div>
+            <button type="button" class="btn-close ms-auto" @onclick="() => mostrarAlerta = false"></button>
+        </div>
+    }
+
+    @if (mostrarAlertaError)
+    {
+        <div class="alerta-neumo alerta-error mb-2">
+            <i class="oi oi-warning me-2 fs-4"></i>
+            <div>
+                <strong>Error</strong><br/>
+                <small>Verifica los campos obligatorios.</small>
+            </div>
+            <button type="button" class="btn-close ms-auto" @onclick="() => mostrarAlertaError = false"></button>
+        </div>
+    }
+</div>
+
+@code {
+    private Estudiante nuevoestudiante = new();
+    private List<Estudiante> estudiantes = new();
+    private Estudiante estudianteEditar = new();
+    private bool mostrarAlerta = false;
+    private bool mostrarAlertaError = false;
+    private bool mostrarModalEditar = false;
+
+    private string terminoBusqueda = "";
+    
+    // Variables de filtro
+    private string filtroSexo = "";
+    private string filtroTipoDocumento = "";
+    private string filtroTipoSangre = "";
+
+    protected override async Task OnInitializedAsync()
+    {
+        await ObtenerEstudiantes();
+    }
+    
+    private async Task RegistrarEstudiante()
+    {
+        try
+        {
+            var response = await http.PostAsJsonAsync("http://localhost:5000/prueba", nuevoestudiante);
+            if (response.IsSuccessStatusCode)
+            {
+                await ObtenerEstudiantes();
+                nuevoestudiante = new();
+                mostrarAlerta = true;
+                await Task.Delay(4000); 
+                mostrarAlerta = false;
+                await InvokeAsync(StateHasChanged);
+            }
+            else
+            {
+                Console.WriteLine($"Error al guardar: {response.StatusCode}");
+            }
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"Excepción: {ex.Message}");
+        }
+    }
+    
+    private async Task ObtenerEstudiantes()
+    {
+        try
+        {
+            estudiantes = await http.GetFromJsonAsync<List<Estudiante>>("http://localhost:5000/prueba") ?? new();
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"Error al obtener productos: {ex.Message}");
+        }
+    }
+
+    private void AbrirModalEditar(Estudiante est)
+    {
+        estudianteEditar = new Estudiante
+        {
+            codigo = est.codigo,
+            tipodocumento = est.tipodocumento,
+            documento = est.documento,
+            nombreuno = est.nombreuno,
+            nombredos = est.nombredos,
+            apellidouno = est.apellidouno,
+            apellidodos = est.apellidodos,
+            sexo = est.sexo,
+            rh = est.rh,
+            direccion = est.direccion,
+            telefono = est.telefono,
+            fecha = est.fecha
+        };
+        mostrarModalEditar = true;
+    }
+    
+    private async void InvalidSubmitRegister(){
+        mostrarAlertaError = true;
+        await Task.Delay(4000); 
+        mostrarAlertaError = false;
+        await InvokeAsync(StateHasChanged);
+    }
+
+    private void CerrarModalEditar()
+    {
+        mostrarModalEditar = false;
+    }
+
+    // Guardar edición (PUT)
+    private async Task GuardarCambios()
+    {
+        var response = await http.PutAsJsonAsync(
+        $"http://localhost:5000/prueba/{estudianteEditar.documento}",
+        estudianteEditar);
+
+        if (response.IsSuccessStatusCode)
+        {
+            await ObtenerEstudiantes();
+            mostrarModalEditar = false;
+        }
+    }
+
+    // Eliminar estudiante
+    private async Task EliminarEstudiante(string documento)
+    {
+        var response = await http.DeleteAsync($"http://localhost:5000/prueba/{documento}");
+
+        if (response.IsSuccessStatusCode)
+            await ObtenerEstudiantes();
+    }
+
+    private async Task BuscarEstudiantes()
+    {
+        try
+        {
+            // Determinar qué tipo de búsqueda realizar
+            if (!string.IsNullOrEmpty(terminoBusqueda))
+            {
+                if (!string.IsNullOrEmpty(filtroSexo))
+                {
+                    // Búsqueda por nombre + filtro por sexo
+                    var url = $"http://localhost:5000/prueba/buscar/{Uri.EscapeDataString(terminoBusqueda)}/{filtroSexo}";
+                    estudiantes = await http.GetFromJsonAsync<List<Estudiante>>(url) ?? new();
+                }
+                else
+                {
+                    // Solo búsqueda por nombre
+                    var url = $"http://localhost:5000/prueba/buscar/nombre/{Uri.EscapeDataString(terminoBusqueda)}";
+                    estudiantes = await http.GetFromJsonAsync<List<Estudiante>>(url) ?? new();
+                }
+            }
+            else if (!string.IsNullOrEmpty(filtroSexo))
+            {
+                // Solo filtro por sexo
+                var url = $"http://localhost:5000/prueba/filtro/sexo/{filtroSexo}";
+                estudiantes = await http.GetFromJsonAsync<List<Estudiante>>(url) ?? new();
+            }
+            else if (!string.IsNullOrEmpty(filtroTipoDocumento))
+            {
+                // Filtro por tipo de documento
+                var url = $"http://localhost:5000/prueba/filtro/tipodocumento/{filtroTipoDocumento}";
+                estudiantes = await http.GetFromJsonAsync<List<Estudiante>>(url) ?? new();
+            }
+            else if (!string.IsNullOrEmpty(filtroTipoSangre))
+            {
+                // Filtro por tipo de sangre
+                var url = $"http://localhost:5000/prueba/filtro/rh/{filtroTipoSangre}";
+                estudiantes = await http.GetFromJsonAsync<List<Estudiante>>(url) ?? new();
+            }
+            else
+            {
+                // Si no hay filtros, mostrar todos
+                await ObtenerEstudiantes();
+            }
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"Error al buscar estudiantes: {ex.Message}");
+        }
+    }
+
+    private async Task BusquedaGeneral()
+    {
+        try
+        {
+            if (!string.IsNullOrEmpty(terminoBusqueda))
+            {
+                // Búsqueda por nombre
+                var url = $"http://localhost:5000/prueba/buscar/nombre/{Uri.EscapeDataString(terminoBusqueda)}";
+                estudiantes = await http.GetFromJsonAsync<List<Estudiante>>(url) ?? new();
+            }
+            else
+            {
+                await ObtenerEstudiantes();
+            }
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"Error en búsqueda general: {ex.Message}");
+        }
+    }
+
+    private void LimpiarFiltros()
+    {
+        terminoBusqueda = "";
+        filtroSexo = "";
+        filtroTipoDocumento = "";
+        filtroTipoSangre = "";
+        estudiantes.Clear(); 
+    }
+
+    private bool TieneFiltrosActivos()
+    {
+        return !string.IsNullOrEmpty(terminoBusqueda) ||
+               !string.IsNullOrEmpty(filtroSexo) ||
+               !string.IsNullOrEmpty(filtroTipoDocumento) ||
+               !string.IsNullOrEmpty(filtroTipoSangre);
+    }
+
+    private string ObtenerTipoSangreTexto(string codigo)
+    {
+        return codigo switch
+        {
+            "1" => "O-",
+            "2" => "O+",
+            "3" => "A-",
+            "4" => "A+",
+            "5" => "B-",
+            "6" => "B+",
+            "7" => "AB-",
+            "8" => "AB+",
+            _ => "Desconocido"
+        };
+    }
+
+    private string ObtenerTipoDocumentoTexto(string codigo)
+    {
+        return codigo switch
+        {
+            "1" => "C.C.",
+            "2" => "C.E.",
+            "3" => "T.I.",
+            _ => "Desconocido"
+        };
+    }
+}
+
+
+@if (mostrarModalEditar)
+{
+    <div class="modal fade show d-block" tabindex="-1" style="background: rgba(0,0,0,0.5);">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content neumo-card">
+
+                <div class="modal-header header-gradiente text-white">
+                    <h5 class="modal-title">Editar Estudiante</h5>
+                    <button type="button" class="btn-close btn-close-white" @onclick="CerrarModalEditar"></button>
+                </div>
+
+                <div class="modal-body">
+                    <EditForm Model="@estudianteEditar" OnValidSubmit="GuardarCambios"
+                        OnInvalidSubmit="InvalidSubmitRegister">
+                        <DataAnnotationsValidator />
+                        
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label class="label-modern">Primer Nombre:</label>
+                                <InputText @bind-Value="estudianteEditar.nombreuno" class="input-modern" />
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label class="label-modern">Segundo Nombre:</label>
+                                <InputText @bind-Value="estudianteEditar.nombredos" class="input-modern" />
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label class="label-modern">Primer Apellido:</label>
+                                <InputText @bind-Value="estudianteEditar.apellidouno" class="input-modern" />
+                            </div>
+                             <div class="col-md-6 mb-3">
+                                <label class="label-modern">Segundo Apellido:</label>
+                                <InputText @bind-Value="estudianteEditar.apellidodos" class="input-modern" />
+                            </div>
+                        </div>
+                        
+                        <div class="row">
+                            <div class="col-md-8 mb-3">
+                                <label class="label-modern">Dirección:</label>
+                                <InputText @bind-Value="estudianteEditar.direccion" class="input-modern" />
+                            </div>
+                            <div class="col-md-4 mb-3">
+                                <label class="label-modern">Teléfono:</label>
+                                <InputText @bind-Value="estudianteEditar.telefono" class="input-modern" />
+                            </div>
+                        </div>
+
+
+                        <div class="text-end mt-4">
+                            <button type="submit" class="btn-gradiente btn-animado">
+                                <i class="oi oi-check me-2"></i> Guardar Cambios
+                            </button>
+                        </div>
+                    </EditForm>
+                </div>
+            </div>
+        </div>
+    </div>
+}

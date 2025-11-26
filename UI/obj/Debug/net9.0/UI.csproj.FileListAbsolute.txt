@@ -1,0 +1,95 @@
+C:\Users\dev\source\repos\APIERP\FrontEnd\UI20250922\UI\UI\bin\Debug\net9.0\appsettings.Development.json
+C:\Users\dev\source\repos\APIERP\FrontEnd\UI20250922\UI\UI\bin\Debug\net9.0\appsettings.json
+C:\Users\dev\source\repos\APIERP\FrontEnd\UI20250922\UI\UI\bin\Debug\net9.0\UI.staticwebassets.runtime.json
+C:\Users\dev\source\repos\APIERP\FrontEnd\UI20250922\UI\UI\bin\Debug\net9.0\UI.staticwebassets.endpoints.json
+C:\Users\dev\source\repos\APIERP\FrontEnd\UI20250922\UI\UI\bin\Debug\net9.0\UI.exe
+C:\Users\dev\source\repos\APIERP\FrontEnd\UI20250922\UI\UI\bin\Debug\net9.0\UI.deps.json
+C:\Users\dev\source\repos\APIERP\FrontEnd\UI20250922\UI\UI\bin\Debug\net9.0\UI.runtimeconfig.json
+C:\Users\dev\source\repos\APIERP\FrontEnd\UI20250922\UI\UI\bin\Debug\net9.0\UI.dll
+C:\Users\dev\source\repos\APIERP\FrontEnd\UI20250922\UI\UI\bin\Debug\net9.0\UI.pdb
+C:\Users\dev\source\repos\APIERP\FrontEnd\UI20250922\UI\UI\bin\Debug\net9.0\MudBlazor.dll
+C:\Users\dev\source\repos\APIERP\FrontEnd\UI20250922\UI\UI\obj\Debug\net9.0\UI.csproj.AssemblyReference.cache
+C:\Users\dev\source\repos\APIERP\FrontEnd\UI20250922\UI\UI\obj\Debug\net9.0\rpswa.dswa.cache.json
+C:\Users\dev\source\repos\APIERP\FrontEnd\UI20250922\UI\UI\obj\Debug\net9.0\UI.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\dev\source\repos\APIERP\FrontEnd\UI20250922\UI\UI\obj\Debug\net9.0\UI.AssemblyInfoInputs.cache
+C:\Users\dev\source\repos\APIERP\FrontEnd\UI20250922\UI\UI\obj\Debug\net9.0\UI.AssemblyInfo.cs
+C:\Users\dev\source\repos\APIERP\FrontEnd\UI20250922\UI\UI\obj\Debug\net9.0\UI.csproj.CoreCompileInputs.cache
+C:\Users\dev\source\repos\APIERP\FrontEnd\UI20250922\UI\UI\obj\Debug\net9.0\UI.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\dev\source\repos\APIERP\FrontEnd\UI20250922\UI\UI\obj\Debug\net9.0\UI.RazorAssemblyInfo.cache
+C:\Users\dev\source\repos\APIERP\FrontEnd\UI20250922\UI\UI\obj\Debug\net9.0\UI.RazorAssemblyInfo.cs
+C:\Users\dev\source\repos\APIERP\FrontEnd\UI20250922\UI\UI\obj\Debug\net9.0\rjimswa.dswa.cache.json
+C:\Users\dev\source\repos\APIERP\FrontEnd\UI20250922\UI\UI\obj\Debug\net9.0\rjsmrazor.dswa.cache.json
+C:\Users\dev\source\repos\APIERP\FrontEnd\UI20250922\UI\UI\obj\Debug\net9.0\rjsmcshtml.dswa.cache.json
+C:\Users\dev\source\repos\APIERP\FrontEnd\UI20250922\UI\UI\obj\Debug\net9.0\scopedcss\Shared\MainLayout.razor.rz.scp.css
+C:\Users\dev\source\repos\APIERP\FrontEnd\UI20250922\UI\UI\obj\Debug\net9.0\scopedcss\Shared\NavMenu.razor.rz.scp.css
+C:\Users\dev\source\repos\APIERP\FrontEnd\UI20250922\UI\UI\obj\Debug\net9.0\scopedcss\bundle\UI.styles.css
+C:\Users\dev\source\repos\APIERP\FrontEnd\UI20250922\UI\UI\obj\Debug\net9.0\scopedcss\projectbundle\UI.bundle.scp.css
+C:\Users\dev\source\repos\APIERP\FrontEnd\UI20250922\UI\UI\obj\Debug\net9.0\compressed\tzxjg6is5z-l719pty5cb.gz
+C:\Users\dev\source\repos\APIERP\FrontEnd\UI20250922\UI\UI\obj\Debug\net9.0\compressed\0wz98yz2xy-cfcsbrv665.gz
+C:\Users\dev\source\repos\APIERP\FrontEnd\UI20250922\UI\UI\obj\Debug\net9.0\compressed\2rxc91cuq6-bpk8xqwxhs.gz
+C:\Users\dev\source\repos\APIERP\FrontEnd\UI20250922\UI\UI\obj\Debug\net9.0\compressed\2puk7du17f-8inm30yfxf.gz
+C:\Users\dev\source\repos\APIERP\FrontEnd\UI20250922\UI\UI\obj\Debug\net9.0\compressed\zry82j7rht-cmapd0fi15.gz
+C:\Users\dev\source\repos\APIERP\FrontEnd\UI20250922\UI\UI\obj\Debug\net9.0\compressed\sfkdtc6fpu-wk8x8xm0ah.gz
+C:\Users\dev\source\repos\APIERP\FrontEnd\UI20250922\UI\UI\obj\Debug\net9.0\compressed\7g587znl6s-sjnzgf7e1h.gz
+C:\Users\dev\source\repos\APIERP\FrontEnd\UI20250922\UI\UI\obj\Debug\net9.0\compressed\anqgpl51s3-5bzwdl5l6x.gz
+C:\Users\dev\source\repos\APIERP\FrontEnd\UI20250922\UI\UI\obj\Debug\net9.0\compressed\bwgyuxq6h9-ey7f0sphx2.gz
+C:\Users\dev\source\repos\APIERP\FrontEnd\UI20250922\UI\UI\obj\Debug\net9.0\compressed\9u70u3ebro-mb35v9q6en.gz
+C:\Users\dev\source\repos\APIERP\FrontEnd\UI20250922\UI\UI\obj\Debug\net9.0\compressed\p9bauy0dku-mb35v9q6en.gz
+C:\Users\dev\source\repos\APIERP\FrontEnd\UI20250922\UI\UI\obj\Debug\net9.0\staticwebassets.build.json
+C:\Users\dev\source\repos\APIERP\FrontEnd\UI20250922\UI\UI\obj\Debug\net9.0\staticwebassets.build.json.cache
+C:\Users\dev\source\repos\APIERP\FrontEnd\UI20250922\UI\UI\obj\Debug\net9.0\staticwebassets.development.json
+C:\Users\dev\source\repos\APIERP\FrontEnd\UI20250922\UI\UI\obj\Debug\net9.0\staticwebassets.build.endpoints.json
+C:\Users\dev\source\repos\APIERP\FrontEnd\UI20250922\UI\UI\obj\Debug\net9.0\staticwebassets.upToDateCheck.txt
+C:\Users\dev\source\repos\APIERP\FrontEnd\UI20250922\UI\UI\obj\Debug\net9.0\UI.csproj.Up2Date
+C:\Users\dev\source\repos\APIERP\FrontEnd\UI20250922\UI\UI\obj\Debug\net9.0\UI.dll
+C:\Users\dev\source\repos\APIERP\FrontEnd\UI20250922\UI\UI\obj\Debug\net9.0\refint\UI.dll
+C:\Users\dev\source\repos\APIERP\FrontEnd\UI20250922\UI\UI\obj\Debug\net9.0\UI.pdb
+C:\Users\dev\source\repos\APIERP\FrontEnd\UI20250922\UI\UI\obj\Debug\net9.0\UI.genruntimeconfig.cache
+C:\Users\dev\source\repos\APIERP\FrontEnd\UI20250922\UI\UI\obj\Debug\net9.0\ref\UI.dll
+C:\Users\31yef\Desktop\Uni\Taller Leng 2 Proy final\Developer\UI\bin\Debug\net9.0\appsettings.Development.json
+C:\Users\31yef\Desktop\Uni\Taller Leng 2 Proy final\Developer\UI\bin\Debug\net9.0\appsettings.json
+C:\Users\31yef\Desktop\Uni\Taller Leng 2 Proy final\Developer\UI\bin\Debug\net9.0\UI.staticwebassets.runtime.json
+C:\Users\31yef\Desktop\Uni\Taller Leng 2 Proy final\Developer\UI\bin\Debug\net9.0\UI.staticwebassets.endpoints.json
+C:\Users\31yef\Desktop\Uni\Taller Leng 2 Proy final\Developer\UI\bin\Debug\net9.0\UI.exe
+C:\Users\31yef\Desktop\Uni\Taller Leng 2 Proy final\Developer\UI\bin\Debug\net9.0\UI.deps.json
+C:\Users\31yef\Desktop\Uni\Taller Leng 2 Proy final\Developer\UI\bin\Debug\net9.0\UI.runtimeconfig.json
+C:\Users\31yef\Desktop\Uni\Taller Leng 2 Proy final\Developer\UI\bin\Debug\net9.0\UI.dll
+C:\Users\31yef\Desktop\Uni\Taller Leng 2 Proy final\Developer\UI\bin\Debug\net9.0\UI.pdb
+C:\Users\31yef\Desktop\Uni\Taller Leng 2 Proy final\Developer\UI\bin\Debug\net9.0\MudBlazor.dll
+C:\Users\31yef\Desktop\Uni\Taller Leng 2 Proy final\Developer\UI\obj\Debug\net9.0\UI.csproj.AssemblyReference.cache
+C:\Users\31yef\Desktop\Uni\Taller Leng 2 Proy final\Developer\UI\obj\Debug\net9.0\rpswa.dswa.cache.json
+C:\Users\31yef\Desktop\Uni\Taller Leng 2 Proy final\Developer\UI\obj\Debug\net9.0\UI.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\31yef\Desktop\Uni\Taller Leng 2 Proy final\Developer\UI\obj\Debug\net9.0\UI.AssemblyInfoInputs.cache
+C:\Users\31yef\Desktop\Uni\Taller Leng 2 Proy final\Developer\UI\obj\Debug\net9.0\UI.AssemblyInfo.cs
+C:\Users\31yef\Desktop\Uni\Taller Leng 2 Proy final\Developer\UI\obj\Debug\net9.0\UI.csproj.CoreCompileInputs.cache
+C:\Users\31yef\Desktop\Uni\Taller Leng 2 Proy final\Developer\UI\obj\Debug\net9.0\UI.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\31yef\Desktop\Uni\Taller Leng 2 Proy final\Developer\UI\obj\Debug\net9.0\UI.RazorAssemblyInfo.cache
+C:\Users\31yef\Desktop\Uni\Taller Leng 2 Proy final\Developer\UI\obj\Debug\net9.0\UI.RazorAssemblyInfo.cs
+C:\Users\31yef\Desktop\Uni\Taller Leng 2 Proy final\Developer\UI\obj\Debug\net9.0\rjimswa.dswa.cache.json
+C:\Users\31yef\Desktop\Uni\Taller Leng 2 Proy final\Developer\UI\obj\Debug\net9.0\rjsmrazor.dswa.cache.json
+C:\Users\31yef\Desktop\Uni\Taller Leng 2 Proy final\Developer\UI\obj\Debug\net9.0\rjsmcshtml.dswa.cache.json
+C:\Users\31yef\Desktop\Uni\Taller Leng 2 Proy final\Developer\UI\obj\Debug\net9.0\scopedcss\Shared\MainLayout.razor.rz.scp.css
+C:\Users\31yef\Desktop\Uni\Taller Leng 2 Proy final\Developer\UI\obj\Debug\net9.0\scopedcss\Shared\NavMenu.razor.rz.scp.css
+C:\Users\31yef\Desktop\Uni\Taller Leng 2 Proy final\Developer\UI\obj\Debug\net9.0\scopedcss\bundle\UI.styles.css
+C:\Users\31yef\Desktop\Uni\Taller Leng 2 Proy final\Developer\UI\obj\Debug\net9.0\scopedcss\projectbundle\UI.bundle.scp.css
+C:\Users\31yef\Desktop\Uni\Taller Leng 2 Proy final\Developer\UI\obj\Debug\net9.0\compressed\tzxjg6is5z-l719pty5cb.gz
+C:\Users\31yef\Desktop\Uni\Taller Leng 2 Proy final\Developer\UI\obj\Debug\net9.0\compressed\0wz98yz2xy-cfcsbrv665.gz
+C:\Users\31yef\Desktop\Uni\Taller Leng 2 Proy final\Developer\UI\obj\Debug\net9.0\compressed\2rxc91cuq6-bpk8xqwxhs.gz
+C:\Users\31yef\Desktop\Uni\Taller Leng 2 Proy final\Developer\UI\obj\Debug\net9.0\compressed\2puk7du17f-8inm30yfxf.gz
+C:\Users\31yef\Desktop\Uni\Taller Leng 2 Proy final\Developer\UI\obj\Debug\net9.0\compressed\zry82j7rht-cmapd0fi15.gz
+C:\Users\31yef\Desktop\Uni\Taller Leng 2 Proy final\Developer\UI\obj\Debug\net9.0\compressed\sfkdtc6fpu-wk8x8xm0ah.gz
+C:\Users\31yef\Desktop\Uni\Taller Leng 2 Proy final\Developer\UI\obj\Debug\net9.0\compressed\7g587znl6s-sjnzgf7e1h.gz
+C:\Users\31yef\Desktop\Uni\Taller Leng 2 Proy final\Developer\UI\obj\Debug\net9.0\compressed\anqgpl51s3-5bzwdl5l6x.gz
+C:\Users\31yef\Desktop\Uni\Taller Leng 2 Proy final\Developer\UI\obj\Debug\net9.0\compressed\9u70u3ebro-mb35v9q6en.gz
+C:\Users\31yef\Desktop\Uni\Taller Leng 2 Proy final\Developer\UI\obj\Debug\net9.0\compressed\p9bauy0dku-mb35v9q6en.gz
+C:\Users\31yef\Desktop\Uni\Taller Leng 2 Proy final\Developer\UI\obj\Debug\net9.0\staticwebassets.build.json
+C:\Users\31yef\Desktop\Uni\Taller Leng 2 Proy final\Developer\UI\obj\Debug\net9.0\staticwebassets.build.json.cache
+C:\Users\31yef\Desktop\Uni\Taller Leng 2 Proy final\Developer\UI\obj\Debug\net9.0\staticwebassets.development.json
+C:\Users\31yef\Desktop\Uni\Taller Leng 2 Proy final\Developer\UI\obj\Debug\net9.0\staticwebassets.build.endpoints.json
+C:\Users\31yef\Desktop\Uni\Taller Leng 2 Proy final\Developer\UI\obj\Debug\net9.0\UI.csproj.Up2Date
+C:\Users\31yef\Desktop\Uni\Taller Leng 2 Proy final\Developer\UI\obj\Debug\net9.0\UI.dll
+C:\Users\31yef\Desktop\Uni\Taller Leng 2 Proy final\Developer\UI\obj\Debug\net9.0\refint\UI.dll
+C:\Users\31yef\Desktop\Uni\Taller Leng 2 Proy final\Developer\UI\obj\Debug\net9.0\UI.pdb
+C:\Users\31yef\Desktop\Uni\Taller Leng 2 Proy final\Developer\UI\obj\Debug\net9.0\UI.genruntimeconfig.cache
+C:\Users\31yef\Desktop\Uni\Taller Leng 2 Proy final\Developer\UI\obj\Debug\net9.0\ref\UI.dll
+C:\Users\31yef\Desktop\Uni\Taller Leng 2 Proy final\Developer\UI\obj\Debug\net9.0\compressed\bwgyuxq6h9-7l1ielwgzi.gz
